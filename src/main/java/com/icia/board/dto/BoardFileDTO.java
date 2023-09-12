@@ -7,5 +7,5 @@ public class BoardFileDTO {
     private Long id;
     private String originalFileName;
     private String storedFileName;
-    private String boardId;
+    private Long boardId;
 }

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>게시판</title>
@@ -37,9 +38,16 @@
                 <div id="contents" class="my-4">
                     <p>${board.boardContents}</p>
                 </div>
+                <c:if test="${board.fileAttached == 1}">
+                    <div id = "image">
+                        <img src="${pageContext.request.constextPath}/upload/${boardFile.storedFileName}"
+                             alt="" width="200" height="200">
+                    </div>
+                </c:if>
                 <div id="footer" class="text-end">
-                    <button class="btn btn-outline-primary" onclick="update_fn(${board.id})">수정</button>
-                    <button class="btn btn-outline-danger" onclick="delete_fn(${board.id})">삭제</button>
+                    <button class="btn btn-outline-primary" onclick="broad_list(${board.id})">수정</button>
+                    <button class="btn btn-outline-warning" onclick="broad_update(${board.id})">수정</button>
+                    <button class="btn btn-outline-danger" onclick="broad_delete(${board.id})">삭제</button>
                 </div>
             </div>
         </div>
@@ -49,11 +57,14 @@
 </div>
 </body>
 <script>
-    const update_fn = (id) => {
+    const broad_list = (id) => {
+        location.href = "/board/";
+    }
+    const broad_update = (id) => {
         location.href = "/board/update?id="+id;
     }
 
-    const delete_fn = (id) => {
+    const broad_delete = (id) => {
         location.href = "/board/delete?id="+id;
     }
 

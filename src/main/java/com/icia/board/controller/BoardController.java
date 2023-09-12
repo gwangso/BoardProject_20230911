@@ -1,6 +1,7 @@
 package com.icia.board.controller;
 
 import com.icia.board.dto.BoardDTO;
+import com.icia.board.dto.BoardFileDTO;
 import com.icia.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -23,8 +25,8 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO){
-        boolean result = boardService.save(boardDTO);
+    public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
+            boardService.save(boardDTO);
         return "index";
     }
 
@@ -35,17 +37,17 @@ public class BoardController {
         return "board/boardList";
     }
 
-    @GetMapping("")
+    @GetMapping
     public String detail(@RequestParam("id") Long id,
                            Model model){
         BoardDTO boardDTO = boardService.findById(id);
-        boolean result = boardService.updateHits(id);
+        boardService.updateHits(id);
         model.addAttribute("board", boardDTO);
-        if (result && boardDTO!=null){
-            return "/board/boardDetail";
-        }else {
-            return "redirect:/board/";
+        if (boardDTO.getFileAttached() == 1){
+            BoardFileDTO boardFileDTO = boardService.findFile(id);
+            model.addAttribute("boardFile", boardFileDTO);
         }
+        return "/board/boardDetail";
     }
 
     @GetMapping("/update")
@@ -84,8 +86,8 @@ public class BoardController {
         if (result){
             return "redirect:/board/";
         }else {
-            BoardDTO dto = boardService.findById(id);
-            model.addAttribute("board",dto);
+            BoardDTO boardDTO = boardService.findById(id);
+            model.addAttribute("board",boardDTO);
             return "/board/boardDetail";
         }
     }
