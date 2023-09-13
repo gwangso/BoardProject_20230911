@@ -28,29 +28,31 @@ public class BoardService {
                 fileAttached=0, 나머지는 기존과 같은 방식
          */
         BoardDTO saveBoard = null;
-        if (boardDTO.getBoardFile().isEmpty()) { // 파일 없음
-            boardDTO.setFileAttached(0);
+        if (boardDTO.getBoardFile().get(0).isEmpty()) { // 파일 없음
             boardRepository.save(boardDTO);
         } else { // 파일 있음
             boardDTO.setFileAttached(1);
             // 게시글 저장 후 id값 활용을 위해 리턴 받음
             BoardDTO savedBoard = boardRepository.save(boardDTO);
-            // 파일만 따로 가져오기
-            MultipartFile boardFile = boardDTO.getBoardFile();
-            // 파일이름 가져오기
-            String originalFilename = boardFile.getOriginalFilename();;
-            // 저장용 이름 만들기
-            System.out.println(System.currentTimeMillis());// 1970년부터 지금까지 지난 초
-            String storedFileName = System.currentTimeMillis() + "-" + originalFilename;
-            BoardFileDTO boardFileDTO = new BoardFileDTO();
-            boardFileDTO.setOriginalFileName(originalFilename);
-            boardFileDTO.setStoredFileName(storedFileName);
-            boardFileDTO.setBoardId(savedBoard.getId());
+            // 파일이 여러게이기 때문에 반복문으로 파일 하나씩 꺼내서 저장 처리
+            for(MultipartFile boardFile : boardDTO.getBoardFile()){
+                // 파일만 따로 가져오기
+                // MultipartFile boardFile = boardDTO.getBoardFile();
+                // 파일이름 가져오기
+                String originalFilename = boardFile.getOriginalFilename();;
+                // 저장용 이름 만들기
+                System.out.println(System.currentTimeMillis());// 1970년부터 지금까지 지난 초
+                String storedFileName = System.currentTimeMillis() + "-" + originalFilename;
+                BoardFileDTO boardFileDTO = new BoardFileDTO();
+                boardFileDTO.setOriginalFileName(originalFilename);
+                boardFileDTO.setStoredFileName(storedFileName);
+                boardFileDTO.setBoardId(savedBoard.getId());
 
-            // 파일 저장용 폴더에 파일 저장 처리
-            String savePath = "D:\\spring_img\\" + storedFileName;
-            boardFile.transferTo(new File(savePath));
-            boardRepository.saveFile(boardFileDTO);
+                // 파일 저장용 폴더에 파일 저장 처리
+                String savePath = "D:\\spring_img\\" + storedFileName;
+                boardFile.transferTo(new File(savePath));
+                boardRepository.saveFile(boardFileDTO);
+            }
         }
     }
 
@@ -92,7 +94,7 @@ public class BoardService {
     }
 
 
-    public BoardFileDTO findFile(Long boardId) {
+    public List<BoardFileDTO> findFile(Long boardId) {
         return boardRepository.findFile(boardId);
     }
 }

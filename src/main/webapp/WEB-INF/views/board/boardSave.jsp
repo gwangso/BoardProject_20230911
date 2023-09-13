@@ -42,7 +42,7 @@
                     <textarea id="board-contents" name="boardContents" type="text" class="form-control"></textarea>
                 </div>
                 <div  class="mb-3">
-                    <input type="file" class="btn btn-secondary" name="boardFile">
+                    <input type="file" class="btn btn-secondary" name="boardFile" multiple>
                 </div>
                 <div class="text-end">
                     <input id="save-button" class="btn btn-primary" type="button" value="저장" onclick="save_fn()">

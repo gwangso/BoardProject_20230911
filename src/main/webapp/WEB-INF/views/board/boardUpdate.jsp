@@ -62,9 +62,6 @@
         if (title.value==""){
             alert("제목을 입력해주세요");
             title.focus();
-        }else if(confirmPass.value==""){
-            alert("비밀번호를 입력해주세요")
-            confirmPass.focus();
         }else if(confirmPass.value != password){
             alert("비밀번호가 일치하지 않습니다.")
             confirmPass.value = "";

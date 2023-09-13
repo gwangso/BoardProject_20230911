@@ -39,9 +39,13 @@
                     <p>${board.boardContents}</p>
                 </div>
                 <c:if test="${board.fileAttached == 1}">
-                    <div id = "image">
-                        <img src="${pageContext.request.constextPath}/upload/${boardFile.storedFileName}"
-                             alt="" width="200" height="200">
+                    <div id = "image" class="card p-4 text-center">
+                        <c:forEach items="${boardFileList}" var="boardFile">
+                            <span>
+                                <img src="${pageContext.request.contextPath}/upload/${boardFile.storedFileName}"
+                                     alt="" width="200" height="200">
+                            </span>
+                        </c:forEach>
                     </div>
                 </c:if>
                 <div id="footer" class="text-end">

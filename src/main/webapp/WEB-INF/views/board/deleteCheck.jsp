@@ -49,7 +49,7 @@
             alert("비밀번호가 틀립니다.");
             password.value="";
             password.focus();
-        }else {
+        }else if (confirm("정말로 삭제하시겠습니까?")){
             deleteForm.submit(id);
         }
     });
