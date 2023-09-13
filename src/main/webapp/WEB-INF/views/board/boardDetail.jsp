@@ -91,7 +91,7 @@
 </body>
 <script>
     const broad_list = () => {
-        location.href = "/board/";
+        location.href = "/board/list";
     }
 
     const broad_update = (id) => {

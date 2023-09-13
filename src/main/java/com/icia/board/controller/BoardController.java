@@ -32,12 +32,13 @@ public class BoardController {
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
             boardService.save(boardDTO);
-        return "index";
+        return "redirect:/list";
     }
 
-    @GetMapping("/")
-    public String findAll(Model model){
-        List<BoardDTO> boardDTOList = boardService.findAll();
+    @GetMapping("/list")
+    public String findAll(@RequestParam(value = "page", required = false, defaultValue = "1") int page // required : 필수정보인가(true) 아닌가(false)
+                            , Model model){
+        List<BoardDTO> boardDTOList = boardService.pagingList(page);
         model.addAttribute("boardList", boardDTOList);
         return "board/boardList";
     }
@@ -95,7 +96,7 @@ public class BoardController {
                          Model model){
         boolean result = boardService.delete(id);
         if (result){
-            return "redirect:/board/";
+            return "redirect:/board/list";
         }else {
             BoardDTO boardDTO = boardService.findById(id);
             model.addAttribute("board",boardDTO);
