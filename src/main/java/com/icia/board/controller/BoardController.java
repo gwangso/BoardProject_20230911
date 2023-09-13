@@ -2,7 +2,9 @@ package com.icia.board.controller;
 
 import com.icia.board.dto.BoardDTO;
 import com.icia.board.dto.BoardFileDTO;
+import com.icia.board.dto.CommentDTO;
 import com.icia.board.service.BoardService;
+import com.icia.board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ import java.util.List;
 public class BoardController {
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/save")
     public String save(){
@@ -38,7 +43,7 @@ public class BoardController {
     }
 
     @GetMapping
-    public String detail(@RequestParam("id") Long id,
+    public String findById(@RequestParam("id") Long id,
                            Model model){
         BoardDTO boardDTO = boardService.findById(id);
         boardService.updateHits(id);
@@ -46,6 +51,12 @@ public class BoardController {
         if (boardDTO.getFileAttached() == 1){
             List<BoardFileDTO> boardFileDTOList = boardService.findFile(id);
             model.addAttribute("boardFileList", boardFileDTOList);
+        }
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        if (commentDTOList.size() == 0){
+            model.addAttribute("commentList", null);
+        }else {
+            model.addAttribute("commentList", commentDTOList);
         }
         return "/board/boardDetail";
     }
