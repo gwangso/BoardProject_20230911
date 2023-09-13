@@ -9,11 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="뎃글기능">
+    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="페이징 처리 1차">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/dto/PageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/repository/BoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/repository/BoardRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/service/BoardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/board-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/board-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/icia/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/icia/board/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/icia/board/repository/BoardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/icia/board/repository/BoardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/icia/board/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/icia/board/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/board-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/board-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/controller/BoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/repository/BoardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/repository/BoardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/mapper/board-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/mapper/board-mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardDetail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +39,8 @@
       <list>
         <option value="Jsp File" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -188,7 +202,7 @@
       <workItem from="1694389723153" duration="2260000" />
       <workItem from="1694392052870" duration="26360000" />
       <workItem from="1694491038263" duration="17675000" />
-      <workItem from="1694561989813" duration="10324000" />
+      <workItem from="1694561989813" duration="17225000" />
     </task>
     <task id="LOCAL-00001" summary="파일첨부">
       <created>1694507455383</created>
@@ -211,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694578144442</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="페이징 처리 1차">
+      <created>1694579882661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694579882661</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +254,7 @@
     <MESSAGE value="mapping 수정" />
     <MESSAGE value="여러파일첨부기능" />
     <MESSAGE value="뎃글기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="뎃글기능" />
+    <MESSAGE value="페이징 처리 1차" />
+    <option name="LAST_COMMIT_MESSAGE" value="페이징 처리 1차" />
   </component>
 </project>

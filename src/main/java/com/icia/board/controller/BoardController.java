@@ -3,11 +3,10 @@ package com.icia.board.controller;
 import com.icia.board.dto.BoardDTO;
 import com.icia.board.dto.BoardFileDTO;
 import com.icia.board.dto.CommentDTO;
+import com.icia.board.dto.PageDTO;
 import com.icia.board.service.BoardService;
 import com.icia.board.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +31,7 @@ public class BoardController {
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
             boardService.save(boardDTO);
-        return "redirect:/list";
+        return "redirect:/board/list";
     }
 
     @GetMapping("/list")
@@ -40,11 +39,14 @@ public class BoardController {
                             , Model model){
         List<BoardDTO> boardDTOList = boardService.pagingList(page);
         model.addAttribute("boardList", boardDTOList);
+        PageDTO pageDTO = boardService.pageNumber(page);
+        model.addAttribute("paging", pageDTO);
         return "board/boardList";
     }
 
     @GetMapping
     public String findById(@RequestParam("id") Long id,
+                           @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                            Model model){
         BoardDTO boardDTO = boardService.findById(id);
         boardService.updateHits(id);
@@ -59,6 +61,7 @@ public class BoardController {
         }else {
             model.addAttribute("commentList", commentDTOList);
         }
+        model.addAttribute("page", page);
         return "/board/boardDetail";
     }
 
@@ -84,14 +87,6 @@ public class BoardController {
     }
 
     @GetMapping("/delete")
-    public String deletePage(@RequestParam("id") Long id,
-                         Model model){
-        BoardDTO boardDTO = boardService.findById(id);
-        model.addAttribute("board",boardDTO);
-        return "/board/deleteCheck";
-    }
-
-    @PostMapping("/delete")
     public String delete(@RequestParam("id") Long id,
                          Model model){
         boolean result = boardService.delete(id);
