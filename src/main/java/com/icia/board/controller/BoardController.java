@@ -94,15 +94,13 @@ public class BoardController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute BoardDTO boardDTO,
-                         Model model){
-        boolean result = boardService.update(boardDTO);
-        if (result){
-            BoardDTO dto = boardService.findById(boardDTO.getId());
-            model.addAttribute("board",dto);
-            return "/board/boardDetail";
-        }else {
-            return "redirect:/board/update?id="+boardDTO.getId();
-        }
+                         Model model) throws Exception{
+        boardService.update(boardDTO);
+
+        // boardDetail로 돌아가기
+        BoardDTO dto = boardService.findById(boardDTO.getId());
+        model.addAttribute("board",dto);
+        return "/board/boardDetail";
     }
 
     @GetMapping("/delete")

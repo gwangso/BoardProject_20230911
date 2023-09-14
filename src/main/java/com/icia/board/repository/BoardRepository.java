@@ -32,8 +32,8 @@ public class BoardRepository {
         return result;
     }
 
-    public int update(BoardDTO boardDTO) {
-        return sql.update("Board.update",boardDTO);
+    public void update(BoardDTO boardDTO) {
+        sql.update("Board.update",boardDTO);
     }
 
     public int delete(Long id) {

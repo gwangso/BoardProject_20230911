@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="검색 시 페이징 처리 1차완료, createAt을 createdAt으로 변경">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardList.jsp" afterDir="false" />
+    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="검색 시 페이징 처리 완료">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardSave.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/boardSave.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +186,7 @@
       <workItem from="1694392052870" duration="26360000" />
       <workItem from="1694491038263" duration="17675000" />
       <workItem from="1694561989813" duration="22407000" />
-      <workItem from="1694648769285" duration="3665000" />
+      <workItem from="1694648769285" duration="4671000" />
     </task>
     <task id="LOCAL-00001" summary="파일첨부">
       <created>1694507455383</created>
@@ -239,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694651241749</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="검색 시 페이징 처리 완료">
+      <created>1694652613841</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694652613841</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +269,7 @@
     <MESSAGE value="페이징 처리 1차" />
     <MESSAGE value="페이징 처리 2차, 삭제방법 변경" />
     <MESSAGE value="검색 시 페이징 처리 1차완료, createAt을 createdAt으로 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="검색 시 페이징 처리 1차완료, createAt을 createdAt으로 변경" />
+    <MESSAGE value="검색 시 페이징 처리 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="검색 시 페이징 처리 완료" />
   </component>
 </project>

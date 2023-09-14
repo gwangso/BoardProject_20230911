@@ -23,7 +23,7 @@
 <div class="row m-5">
     <div class="col">
         <div class="card p-4">
-            <form id="update-form" method="post">
+            <form id="update-form" method="post" enctype="multipart/form-data">
                 <div class="input-group mb-3">
                     <span class="input-group-text">제목</span>
                     <input name="boardTitle" type="text" class="form-control" value="${board.boardTitle}">
@@ -35,6 +35,9 @@
                 <div class="mb-3">
                     <label for="board-contents" class="form-label" >작성내용</label>
                     <textarea id="board-contents" name="boardContents" type="text" class="form-control">${board.boardContents}</textarea>
+                </div>
+                <div  class="mb-3">
+                    <input type="file" class="form-control" name="boardFile" multiple>
                 </div>
                 <br>
                 <div class="input-group mb-3">
