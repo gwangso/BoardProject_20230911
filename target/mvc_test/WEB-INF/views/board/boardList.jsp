@@ -24,7 +24,7 @@
     <div class="col">
         <jsp:include page="../compotnent/header.jsp"/>
         <div class="container mt-5 mb-3 ms-5" id="search-area">
-            <form action="/board/search" method="get">
+            <form action="/board/list" method="get">
                 <select name="type">
                     <option value="boardTitle">제목</option>
                     <option value="boardWriter">작성자</option>
@@ -37,7 +37,7 @@
             <div class="col">
                 <c:forEach items="${boardList}" var="board">
                     <div class="card p-4 mb-3 mx-5">
-                        <h5><a href="/board?id=${board.id}&${paging.page}">제목 : ${board.boardTitle}</a></h5> <br>
+                        <h5><a href="/board?id=${board.id}&page=${paging.page}&query=${query}&type=${type}">제목 : ${board.boardTitle}</a></h5> <br>
                         <p>작성자 : ${board.boardWriter}</p> <br>
                         <p>조회수 : ${board.boardHits}</p> <br>
                         <p>작성일 : ${board.createdAt}</p>
@@ -58,7 +58,7 @@
                     <%-- 1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
                     <c:otherwise>
                         <li class="page-item">
-                            <a class="page-link" href="/board/list?page=${paging.page-1}">[이전]</a>
+                            <a class="page-link" href="/board/list?page=${paging.page-1}&query=${query}&type=${type}">[이전]</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
@@ -75,7 +75,7 @@
 
                         <c:otherwise>
                             <li class="page-item">
-                                <a class="page-link" href="/board/list?page=${i}">${i}</a>
+                                <a class="page-link" href="/board/list?page=${i}&query=${query}&type=${type}">${i}</a>
                             </li>
                         </c:otherwise>
                     </c:choose>
@@ -89,7 +89,7 @@
                     </c:when>
                     <c:otherwise>
                         <li class="page-item">
-                            <a class="page-link" href="/board/list?page=${paging.page+1}">[다음]</a>
+                            <a class="page-link" href="/board/list?page=${paging.page+1}&query=${query}&type=${type}">[다음]</a>
                         </li>
                     </c:otherwise>
                 </c:choose>

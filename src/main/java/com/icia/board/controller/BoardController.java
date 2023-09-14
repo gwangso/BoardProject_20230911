@@ -35,18 +35,35 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public String findAll(@RequestParam(value = "page", required = false, defaultValue = "1") int page // required : 필수정보인가(true) 아닌가(false)
-                            , Model model){
-        List<BoardDTO> boardDTOList = boardService.pagingList(page);
+    public String findAll(@RequestParam(value = "page", required = false, defaultValue = "1") int page, // required : 필수정보인가(true) 아닌가(false)
+                          @RequestParam(value = "query", required = false, defaultValue = "") String query,
+                          @RequestParam(value = "type", required = false, defaultValue = "boardTitle") String type,
+                          Model model){
+        List<BoardDTO> boardDTOList = null;
+        PageDTO pageDTO = null;
+
+        if(query.equals("")){
+            // 일반 페이지 요청
+            boardDTOList = boardService.pagingList(page);
+            pageDTO = boardService.pageNumber(page);
+        }else {
+            // 검색결과 페이지 요청
+            boardDTOList = boardService.searchList(query, type, page);
+            pageDTO = boardService.searchPageNumber(query, type, page);
+        }
         model.addAttribute("boardList", boardDTOList);
-        PageDTO pageDTO = boardService.pageNumber(page);
         model.addAttribute("paging", pageDTO);
+        model.addAttribute("query", query);
+        model.addAttribute("type", type);
+        model.addAttribute("page", page);
         return "board/boardList";
     }
 
     @GetMapping
     public String findById(@RequestParam("id") Long id,
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                           @RequestParam(value = "query", required = false, defaultValue = "") String query,
+                           @RequestParam(value = "type", required = false, defaultValue = "boardTitle") String type,
                            Model model){
         BoardDTO boardDTO = boardService.findById(id);
         boardService.updateHits(id);
@@ -62,6 +79,8 @@ public class BoardController {
             model.addAttribute("commentList", commentDTOList);
         }
         model.addAttribute("page", page);
+        model.addAttribute("query", query);
+        model.addAttribute("type", type);
         return "/board/boardDetail";
     }
 
@@ -97,18 +116,5 @@ public class BoardController {
             model.addAttribute("board",boardDTO);
             return "/board/boardDetail";
         }
-    }
-
-    @GetMapping("/search")
-    public String search(@RequestParam("query") String query,
-                         @RequestParam("type") String type,
-                         @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-                         Model model){
-        List<BoardDTO> boardDTOList = boardService.searchList(query, type, page);
-        model.addAttribute("boardList", boardDTOList);
-
-        PageDTO pageDTO = boardService.searchPageNumber(query, type, page);
-        model.addAttribute("paging", pageDTO);
-        return "/board/boardList";
     }
 }

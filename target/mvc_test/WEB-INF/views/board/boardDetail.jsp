@@ -110,7 +110,9 @@
 <script>
     const broad_list = () => {
         const page = '${page}';
-        location.href = "/board/list?page="+page;
+        const query = '${query}';
+        const type = '${type}';
+        location.href = "/board/list?page="+page+"&query="+query+"&type="+type;
     }
 
     const broad_update = (id) => {
