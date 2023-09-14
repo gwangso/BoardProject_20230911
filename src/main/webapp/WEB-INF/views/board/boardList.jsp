@@ -23,20 +23,30 @@
 <div class="row">
     <div class="col">
         <jsp:include page="../compotnent/header.jsp"/>
-        <div class="row m-5">
+        <div class="container mt-5 mb-3 ms-5" id="search-area">
+            <form action="/board/search" method="get">
+                <select name="type">
+                    <option value="boardTitle">제목</option>
+                    <option value="boardWriter">작성자</option>
+                </select>
+                <input type="text" name="query" placeholder="검색어를 입력하세요">
+                <input type="submit" value="검색">
+            </form>
+        </div>
+        <div class="row mb-3">
             <div class="col">
                 <c:forEach items="${boardList}" var="board">
-                    <div class="card p-4 mb-3">
+                    <div class="card p-4 mb-3 mx-5">
                         <h5><a href="/board?id=${board.id}&${paging.page}">제목 : ${board.boardTitle}</a></h5> <br>
                         <p>작성자 : ${board.boardWriter}</p> <br>
                         <p>조회수 : ${board.boardHits}</p> <br>
-                        <p>작성일 : ${board.createAt}</p>
+                        <p>작성일 : ${board.createdAt}</p>
                     </div>
                 </c:forEach>
             </div>
         </div>
         <%-- 페이지 번호 출력 부분 --%>
-        <div class="container">
+        <div class="container mb-5">
             <ul class="pagination justify-content-center">
                 <c:choose>
                     <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌 --%>

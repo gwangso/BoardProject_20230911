@@ -98,4 +98,17 @@ public class BoardController {
             return "/board/boardDetail";
         }
     }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("query") String query,
+                         @RequestParam("type") String type,
+                         @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                         Model model){
+        List<BoardDTO> boardDTOList = boardService.searchList(query, type, page);
+        model.addAttribute("boardList", boardDTOList);
+
+        PageDTO pageDTO = boardService.searchPageNumber(query, type, page);
+        model.addAttribute("paging", pageDTO);
+        return "/board/boardList";
+    }
 }

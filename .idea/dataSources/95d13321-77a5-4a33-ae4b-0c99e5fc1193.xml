@@ -954,7 +954,7 @@ db_springframework|schema||user_springframework|localhost|UPDATE|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="296" parent="292" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>5</AutoIncrement>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -992,7 +992,7 @@ db_springframework|schema||user_springframework|localhost|UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="304" parent="293" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>14</AutoIncrement>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1013,7 +1013,7 @@ db_springframework|schema||user_springframework|localhost|UPDATE|G</Grants>
       <DataType>varchar(500)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="309" parent="293" name="createAt">
+    <column id="309" parent="293" name="createdAt">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
@@ -1082,7 +1082,7 @@ db_springframework|schema||user_springframework|localhost|UPDATE|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="323" parent="295" name="id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

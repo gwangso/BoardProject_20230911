@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="페이징 처리 1차">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/dto/PageDTO.java" afterDir="false" />
+    <list default="true" id="51f3c9f3-a2ca-4106-b86b-ef1f863551ef" name="Changes" comment="페이징 처리 2차, 삭제방법 변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/dto/BoardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/dto/BoardDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/repository/BoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/repository/BoardRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/icia/board/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/icia/board/service/BoardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/board-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/board-mapper.xml" afterDir="false" />
@@ -26,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/repository/BoardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/repository/BoardRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/com/icia/board/service/BoardService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/mapper/board-mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/classes/mapper/board-mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardDetail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/mvc_test/WEB-INF/views/board/boardList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,24 +68,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/data/springframework/BoardProject_20230911/src/main/resources/mapper",
-    "list.type.of.created.stylesheet": "CSS",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "fae233d3e2f68810f6e67a29c0fa819d"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/data/springframework/BoardProject_20230911/src/main/resources/mapper&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fae233d3e2f68810f6e67a29c0fa819d&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\data\springframework\BoardProject_20230911\src\main\resources\mapper" />
@@ -202,7 +201,8 @@
       <workItem from="1694389723153" duration="2260000" />
       <workItem from="1694392052870" duration="26360000" />
       <workItem from="1694491038263" duration="17675000" />
-      <workItem from="1694561989813" duration="17225000" />
+      <workItem from="1694561989813" duration="22407000" />
+      <workItem from="1694648769285" duration="2386000" />
     </task>
     <task id="LOCAL-00001" summary="파일첨부">
       <created>1694507455383</created>
@@ -232,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694579882661</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="페이징 처리 2차, 삭제방법 변경">
+      <created>1694586748766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694586748766</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +262,7 @@
     <MESSAGE value="여러파일첨부기능" />
     <MESSAGE value="뎃글기능" />
     <MESSAGE value="페이징 처리 1차" />
-    <option name="LAST_COMMIT_MESSAGE" value="페이징 처리 1차" />
+    <MESSAGE value="페이징 처리 2차, 삭제방법 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="페이징 처리 2차, 삭제방법 변경" />
   </component>
 </project>

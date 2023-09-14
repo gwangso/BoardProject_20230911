@@ -31,7 +31,7 @@
                         <p>작성자 : ${board.boardWriter}</p>
                     </div>
                     <div class="col-6">
-                        <p class="text-end">${board.createAt}</p>
+                        <p class="text-end">${board.createdAt}</p>
                     </div>
                 </div>
                 <hr>
